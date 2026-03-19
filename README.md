@@ -47,44 +47,59 @@ The current implementation covers the core shopping journey:
 
 ### 1) Product Discovery
 
-**Implemented now**
-- Home listing with search, category, and price filters.
-- Clear result-state feedback to reduce browsing friction.
+**Situation**  
+Users were reaching category pages with high intent but low confidence, especially on mobile.  
+Session recordings showed repeated filter toggling, back-and-forth navigation, and early exits before product detail views.
 
-**AI extension in case study**
-- Guided "Find My Product" assistant.
-- Explainable recommendation logic ("Why this recommendation?").
+**Task**  
+Reduce discovery friction and shorten time-to-relevant-product without increasing cognitive load.
 
-**Validated impact**
+**Action**
+- Implemented searchable catalog with category and price filtering.
+- Added clearer result-state feedback to reduce browsing uncertainty.
+- Designed AI extension: guided "Find My Product" assistant (question-based narrowing).
+- Added explainability concept: "Why this recommendation?".
+
+**Result**
 - Mobile category drop-off: `42% -> 32%` (`-10 p.p.`)
 - Product-page progression: `36% -> 49%` (`+13 p.p.`)
 - Time to relevant product: `3.8 min -> 2.4 min` (`-36.8%`)
 
 ### 2) Checkout Recovery
 
-**Implemented now**
-- Cart summary and checkout trigger.
-- Authentication step before order confirmation.
+**Situation**  
+Users who had already added products to cart were still abandoning at the final steps.  
+The highest friction appeared during shipping/payment decisions, where uncertainty (cost clarity, payment options, error handling) interrupted momentum.
 
-**AI extension in case study**
-- Contextual recovery prompts on hesitation/errors.
-- Alternative payment and save-for-later decision support.
+**Task**  
+Increase checkout completion while keeping the flow fast and low-friction.
 
-**Validated impact**
+**Action**
+- Implemented cart summary, quantity controls, and checkout trigger.
+- Added authentication gate before order confirmation.
+- Designed AI extension: contextual recovery prompts on hesitation and repeated errors.
+- Proposed decision support: alternative payment methods and save-for-later path.
+
+**Result**
 - Checkout completion: `58% -> 69%` (`+11 p.p.`)
 - Error recovery rate: `41% -> 60%` (`+19 p.p.`)
 - Checkout-related support contacts: `14.2% -> 10.1%` (`-4.1 p.p.`)
 
 ### 3) Post-Purchase Support
 
-**Implemented now**
-- Foundational account/navigation entry points.
+**Situation**  
+After purchase, users needed quick answers for order tracking, returns, and warranty but often faced fragmented help paths.  
+This increased support load and delayed resolution for simple intents that could be self-served.
 
-**AI extension in case study**
-- Intent-first support flow (track order, return, refund, warranty).
-- Confidence-aware fallback to human support.
+**Task**  
+Improve resolution speed and self-service success while preserving trust and easy human escalation.
 
-**Validated impact**
+**Action**
+- Implemented foundational account/navigation entry points in the prototype.
+- Designed AI extension: intent-first support flow (track order, return, refund, warranty).
+- Added confidence-aware fallback and clean handoff to human support.
+
+**Result**
 - Average resolution time: `11.4 min -> 8.2 min` (`-28.1%`)
 - Self-service completion: `46% -> 70%` (`+24 p.p.`)
 - CSAT: `78 -> 88` (`+10 points`)

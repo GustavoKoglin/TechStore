@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { useNavigate, Link } from 'react-router';
-import { useAuth } from '../context/AuthContext';
+import { Apple, Chrome, Facebook } from 'lucide-react';
+import { useAuth, type SocialProvider } from '../context/AuthContext';
 import { Button } from '../components/ui/button';
 import { Input } from '../components/ui/input';
 import { Label } from '../components/ui/label';
@@ -11,7 +12,8 @@ export function Login() {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [isLoading, setIsLoading] = useState(false);
-  const { login } = useAuth();
+  const [isSocialLoading, setIsSocialLoading] = useState<SocialProvider | null>(null);
+  const { login, loginWithSocial } = useAuth();
   const navigate = useNavigate();
 
   const handleSubmit = async (e: React.FormEvent) => {
@@ -34,6 +36,19 @@ export function Login() {
     }
   };
 
+  const handleSocialLogin = async (provider: SocialProvider) => {
+    setIsSocialLoading(provider);
+    try {
+      await loginWithSocial(provider);
+      toast.success(`Signed in with ${provider.charAt(0).toUpperCase() + provider.slice(1)}!`);
+      navigate('/');
+    } catch (error) {
+      toast.error('Social login failed');
+    } finally {
+      setIsSocialLoading(null);
+    }
+  };
+
   return (
     <div className="min-h-screen flex items-center justify-center bg-gray-50 px-4">
       <Card className="w-full max-w-md">
@@ -45,6 +60,48 @@ export function Login() {
         </CardHeader>
         <form onSubmit={handleSubmit}>
           <CardContent className="space-y-4">
+            <div className="grid grid-cols-1 gap-2">
+              <Button
+                type="button"
+                variant="outline"
+                disabled={isLoading || isSocialLoading !== null}
+                onClick={() => handleSocialLogin('apple')}
+                className="w-full"
+              >
+                <Apple className="mr-2 h-4 w-4" />
+                {isSocialLoading === 'apple' ? 'Signing in with Apple...' : 'Continue with Apple'}
+              </Button>
+              <Button
+                type="button"
+                variant="outline"
+                disabled={isLoading || isSocialLoading !== null}
+                onClick={() => handleSocialLogin('facebook')}
+                className="w-full"
+              >
+                <Facebook className="mr-2 h-4 w-4" />
+                {isSocialLoading === 'facebook' ? 'Signing in with Facebook...' : 'Continue with Facebook'}
+              </Button>
+              <Button
+                type="button"
+                variant="outline"
+                disabled={isLoading || isSocialLoading !== null}
+                onClick={() => handleSocialLogin('google')}
+                className="w-full"
+              >
+                <Chrome className="mr-2 h-4 w-4" />
+                {isSocialLoading === 'google' ? 'Signing in with Google...' : 'Continue with Google'}
+              </Button>
+            </div>
+
+            <div className="relative py-1">
+              <div className="absolute inset-0 flex items-center" aria-hidden="true">
+                <div className="w-full border-t border-gray-200" />
+              </div>
+              <div className="relative flex justify-center text-xs uppercase">
+                <span className="bg-white px-2 text-gray-500">Or sign in with email</span>
+              </div>
+            </div>
+
             <div className="space-y-2">
               <Label htmlFor="email">Email</Label>
               <Input
@@ -53,7 +110,7 @@ export function Login() {
                 placeholder="your@email.com"
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
-                disabled={isLoading}
+                disabled={isLoading || isSocialLoading !== null}
               />
             </div>
             <div className="space-y-2">
@@ -64,12 +121,12 @@ export function Login() {
                 placeholder="••••••••"
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
-                disabled={isLoading}
+                disabled={isLoading || isSocialLoading !== null}
               />
             </div>
           </CardContent>
           <CardFooter className="flex flex-col gap-4">
-            <Button type="submit" className="w-full" disabled={isLoading}>
+            <Button type="submit" className="w-full" disabled={isLoading || isSocialLoading !== null}>
               {isLoading ? 'Signing in...' : 'Sign In'}
             </Button>
             <p className="text-sm text-center text-gray-600">

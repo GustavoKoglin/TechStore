@@ -32,7 +32,7 @@ Recruiters and hiring managers can quickly evaluate how I:
 - **Team setup:** `[solo / cross-functional / agency]`
 - **Primary goal:** Reduce friction in discovery, checkout, and post-purchase journeys
 - **Design origin proof:** `TechStore.make` (included in this repository)
-- **Live demo:** `[Add your demo URL]`
+- **Live demo:** `https://techstore-self-kappa.vercel.app/`
 
 ## Product Scope in Code
 

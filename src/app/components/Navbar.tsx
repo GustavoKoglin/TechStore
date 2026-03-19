@@ -1,5 +1,5 @@
-import { useState } from 'react';
-import { Link, useNavigate } from 'react-router';
+import React, { useState, type FormEvent } from 'react';
+import { Link, useNavigate, useSearchParams } from 'react-router';
 import { ShoppingCart, User, LogOut, Store, Search, Menu, X, Heart } from 'lucide-react';
 import { useAuth } from '../context/AuthContext';
 import { useCart } from '../context/CartContext';
@@ -18,13 +18,33 @@ export function Navbar() {
   const { user, logout } = useAuth();
   const { itemCount } = useCart();
   const [searchQuery, setSearchQuery] = useState('');
+  const [searchParams] = useSearchParams();
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const navigate = useNavigate();
 
-  const handleSearch = (e: React.FormEvent) => {
+  const currentSearch = searchParams.get('search') ?? '';
+  const currentCategory = searchParams.get('category') ?? 'todos';
+  const currentPrice = searchParams.get('price');
+  const currentSort = searchParams.get('sort');
+
+  const buildFiltersUrl = (next: { search?: string; category?: string }) => {
+    const params = new URLSearchParams();
+    const nextSearch = next.search ?? currentSearch;
+    const nextCategory = next.category ?? currentCategory;
+
+    if (nextSearch.trim()) params.set('search', nextSearch.trim());
+    if (nextCategory !== 'todos') params.set('category', nextCategory);
+    if (currentPrice) params.set('price', currentPrice);
+    if (currentSort) params.set('sort', currentSort);
+
+    const query = params.toString();
+    return query ? `/?${query}` : '/';
+  };
+
+  const handleSearch = (e: FormEvent) => {
     e.preventDefault();
     if (searchQuery.trim()) {
-      navigate(`/?search=${searchQuery}`);
+      navigate(buildFiltersUrl({ search: searchQuery }));
       setSearchQuery('');
     }
   };
@@ -175,13 +195,18 @@ export function Navbar() {
         {/* Categories - Desktop */}
         <div className="hidden md:flex items-center gap-1 pb-3 border-t pt-3 overflow-x-auto">
           {categories.map((category) => (
-            <Link
+            <button
               key={category.id}
-              to={`/?category=${category.id}`}
-              className="px-3 py-1.5 rounded-md hover:bg-gray-100 text-sm whitespace-nowrap transition-colors"
+              type="button"
+              onClick={() => navigate(buildFiltersUrl({ category: category.id }))}
+              className={`px-3 py-1.5 rounded-md text-sm whitespace-nowrap transition-colors ${
+                currentCategory === category.id
+                  ? 'bg-blue-100 text-blue-700 font-medium'
+                  : 'hover:bg-gray-100'
+              }`}
             >
               {category.label}
-            </Link>
+            </button>
           ))}
         </div>
       </div>
@@ -193,14 +218,21 @@ export function Navbar() {
             <div className="space-y-2">
               <h3 className="font-semibold text-sm text-gray-500 mb-2">Categories</h3>
               {categories.map((category) => (
-                <Link
+                <button
                   key={category.id}
-                  to={`/?category=${category.id}`}
-                  className="block px-3 py-2 rounded-md hover:bg-gray-100 text-sm"
-                  onClick={() => setMobileMenuOpen(false)}
+                  type="button"
+                  className={`block w-full text-left px-3 py-2 rounded-md text-sm ${
+                    currentCategory === category.id
+                      ? 'bg-blue-100 text-blue-700 font-medium'
+                      : 'hover:bg-gray-100'
+                  }`}
+                  onClick={() => {
+                    navigate(buildFiltersUrl({ category: category.id }));
+                    setMobileMenuOpen(false);
+                  }}
                 >
                   {category.label}
-                </Link>
+                </button>
               ))}
               <div className="border-t pt-2 mt-2">
                 <Link

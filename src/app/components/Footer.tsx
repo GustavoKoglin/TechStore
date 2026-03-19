@@ -4,9 +4,21 @@ import { Input } from './ui/input';
 import { Button } from './ui/button';
 import { useState } from 'react';
 import { toast } from 'sonner';
+import visaLogo from '../../assets/payment/visa.svg';
+import mastercardLogo from '../../assets/payment/mastercard.svg';
+import paypalLogo from '../../assets/payment/paypal.svg';
+import americanExpressLogo from '../../assets/payment/americanexpress.svg';
+import applePayLogo from '../../assets/payment/applepay.svg';
 
 export function Footer() {
   const [email, setEmail] = useState('');
+  const paymentMethods = [
+    { name: 'Visa', logo: visaLogo },
+    { name: 'Mastercard', logo: mastercardLogo },
+    { name: 'PayPal', logo: paypalLogo },
+    { name: 'American Express', logo: americanExpressLogo },
+    { name: 'Apple Pay', logo: applePayLogo },
+  ] as const;
 
   const handleNewsletterSubmit = (e: React.FormEvent) => {
     e.preventDefault();
@@ -238,19 +250,31 @@ export function Footer() {
           <div className="flex flex-col md:flex-row items-center justify-between gap-4">
             <div className="text-center md:text-left">
               <p className="text-sm mb-2">Accepted Payment Methods</p>
-              <div className="flex gap-2 flex-wrap justify-center md:justify-start">
-                <div className="bg-white px-3 py-1 rounded text-xs font-medium text-gray-900">VISA</div>
-                <div className="bg-white px-3 py-1 rounded text-xs font-medium text-gray-900">Mastercard</div>
-                <div className="bg-white px-3 py-1 rounded text-xs font-medium text-gray-900">PayPal</div>
-                <div className="bg-white px-3 py-1 rounded text-xs font-medium text-gray-900">Amex</div>
-                <div className="bg-white px-3 py-1 rounded text-xs font-medium text-gray-900">Apple Pay</div>
+              <div className="flex gap-2.5 flex-wrap justify-center md:justify-start">
+                {paymentMethods.map((method) => (
+                  <div
+                    key={method.name}
+                    className="h-10 w-20 rounded-md bg-white/95 border border-slate-200 shadow-sm flex items-center justify-center"
+                  >
+                    <img
+                      src={method.logo}
+                      alt={method.name}
+                      className="h-5 max-w-[64px] w-auto object-contain"
+                      loading="lazy"
+                    />
+                  </div>
+                ))}
               </div>
             </div>
             <div className="text-center md:text-right">
               <p className="text-sm mb-2">Secure Shopping</p>
               <div className="flex gap-2 flex-wrap justify-center md:justify-end">
-                <div className="bg-green-600 px-3 py-1 rounded text-xs font-medium text-white">SSL Secure</div>
-                <div className="bg-blue-600 px-3 py-1 rounded text-xs font-medium text-white">Verified</div>
+                <div className="h-8 min-w-24 px-3 rounded text-xs font-medium text-white bg-green-600 flex items-center justify-center">
+                  SSL Secure
+                </div>
+                <div className="h-8 min-w-24 px-3 rounded text-xs font-medium text-white bg-blue-600 flex items-center justify-center">
+                  Verified
+                </div>
               </div>
             </div>
           </div>
@@ -262,7 +286,7 @@ export function Footer() {
         <div className="container mx-auto px-4 py-6">
           <div className="flex flex-col md:flex-row items-center justify-between gap-2 text-sm">
             <p>© 2026 TechStore. All rights reserved.</p>
-            <p className="text-gray-400">Made with care for tech enthusiasts worldwide</p>
+            <p className="text-gray-400">Developed by Gustavo Koglin</p>
           </div>
         </div>
       </div>

@@ -4,20 +4,35 @@ import { Input } from './ui/input';
 import { Button } from './ui/button';
 import { useState } from 'react';
 import { toast } from 'sonner';
-import visaLogo from '../../assets/payment/visa.svg';
-import mastercardLogo from '../../assets/payment/mastercard.svg';
-import paypalLogo from '../../assets/payment/paypal.svg';
-import americanExpressLogo from '../../assets/payment/americanexpress.svg';
-import applePayLogo from '../../assets/payment/applepay.svg';
 
 export function Footer() {
   const [email, setEmail] = useState('');
   const paymentMethods = [
-    { name: 'Visa', logo: visaLogo, className: '' },
-    { name: 'Mastercard', logo: mastercardLogo, className: '' },
-    { name: 'PayPal', logo: paypalLogo, className: '' },
-    { name: 'American Express', logo: americanExpressLogo, className: '' },
-    { name: 'Apple Pay', logo: applePayLogo, className: 'brightness-0 invert' },
+    {
+      name: 'Visa',
+      logo: 'https://cdn.jsdelivr.net/gh/aaronfagan/svg-credit-card-payment-icons/flat/visa.svg',
+      className: '',
+    },
+    {
+      name: 'Mastercard',
+      logo: 'https://cdn.jsdelivr.net/gh/aaronfagan/svg-credit-card-payment-icons/flat/mastercard.svg',
+      className: '',
+    },
+    {
+      name: 'PayPal',
+      logo: 'https://cdn.jsdelivr.net/gh/aaronfagan/svg-credit-card-payment-icons/flat/paypal.svg',
+      className: '',
+    },
+    {
+      name: 'American Express',
+      logo: 'https://cdn.jsdelivr.net/gh/aaronfagan/svg-credit-card-payment-icons/flat/amex.svg',
+      className: '',
+    },
+    {
+      name: 'Apple',
+      logo: 'https://upload.wikimedia.org/wikipedia/commons/f/fa/Apple_logo_black.svg',
+      className: 'brightness-0 invert',
+    },
   ] as const;
 
   const handleNewsletterSubmit = (e: React.FormEvent) => {

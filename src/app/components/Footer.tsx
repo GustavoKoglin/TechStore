@@ -13,11 +13,11 @@ import applePayLogo from '../../assets/payment/applepay.svg';
 export function Footer() {
   const [email, setEmail] = useState('');
   const paymentMethods = [
-    { name: 'Visa', logo: visaLogo },
-    { name: 'Mastercard', logo: mastercardLogo },
-    { name: 'PayPal', logo: paypalLogo },
-    { name: 'American Express', logo: americanExpressLogo },
-    { name: 'Apple Pay', logo: applePayLogo },
+    { name: 'Visa', logo: visaLogo, className: '' },
+    { name: 'Mastercard', logo: mastercardLogo, className: '' },
+    { name: 'PayPal', logo: paypalLogo, className: '' },
+    { name: 'American Express', logo: americanExpressLogo, className: '' },
+    { name: 'Apple Pay', logo: applePayLogo, className: 'brightness-0 invert' },
   ] as const;
 
   const handleNewsletterSubmit = (e: React.FormEvent) => {
@@ -250,16 +250,13 @@ export function Footer() {
           <div className="flex flex-col md:flex-row items-center justify-between gap-4">
             <div className="text-center md:text-left">
               <p className="text-sm mb-2">Accepted Payment Methods</p>
-              <div className="flex gap-2.5 flex-wrap justify-center md:justify-start">
+              <div className="flex gap-4 flex-wrap items-center justify-center md:justify-start">
                 {paymentMethods.map((method) => (
-                  <div
-                    key={method.name}
-                    className="h-10 w-20 rounded-md bg-white/95 border border-slate-200 shadow-sm flex items-center justify-center"
-                  >
+                  <div key={method.name} className="h-12 w-24 flex items-center justify-center">
                     <img
                       src={method.logo}
                       alt={method.name}
-                      className="h-5 max-w-[64px] w-auto object-contain"
+                      className={`h-8 max-w-[96px] w-auto object-contain ${method.className}`}
                       loading="lazy"
                     />
                   </div>

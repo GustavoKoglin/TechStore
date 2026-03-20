@@ -4,9 +4,9 @@ This folder contains complete UX Design Engineering use cases for TechStore.
 
 ## Included Cases
 
-1. `01-AI-Powered-Product-Discovery.md`
-2. `02-AI-Assisted-Checkout-Recovery.md`
-3. `03-AI-Enhanced-Post-Purchase-Support.md`
+1. [01 - AI-Powered Product Discovery](./01-AI-Powered-Product-Discovery.md)
+2. [02 - AI-Assisted Checkout Recovery](./02-AI-Assisted-Checkout-Recovery.md)
+3. [03 - AI-Enhanced Post-Purchase Support](./03-AI-Enhanced-Post-Purchase-Support.md)
 
 Each case includes:
 - Story and narrative context

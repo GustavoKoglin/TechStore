@@ -1,13 +1,23 @@
 # TechStore
 
-TechStore is an e-commerce UX prototype built to demonstrate product thinking with measurable impact: problem framing, flow design, validation, and iteration.
+## AI-Augmented UX Design Engineering Case Study
+
+TechStore is an e-commerce prototype built to demonstrate how UX problem framing translates into runnable code, measurable impact, and faster iteration through AI-assisted workflows.
 
 The experience was initially authored in **Figma Make** and then translated into a working React prototype for portfolio and hiring review.
 
-This repository supports three AI-oriented case studies:
+This repository supports three AI-augmented case studies:
 - AI-Powered Product Discovery
 - AI-Assisted Checkout Recovery
 - AI-Enhanced Post-Purchase Support
+
+## Why This Case Stands Out
+
+This project demonstrates the role of a UX Design Engineer, combining:
+- UX problem framing and flow design;
+- AI-assisted prototyping;
+- code-based interactive prototypes;
+- measurable product impact.
 
 ## Why This Project Matters
 
@@ -26,13 +36,27 @@ Recruiters and hiring managers can quickly evaluate how I:
 
 ## Candidate Snapshot
 
-- **Role:** `[Your role: Product Designer / UX Designer / Product + UX]`
+- **Role:** `UX Design Engineer (AI-Augmented Prototyping)`
 - **Project type:** E-commerce UX prototype with AI-assisted flow concepts
 - **Timeline:** `[e.g., Jan 2026 - Mar 2026]`
 - **Team setup:** `[solo / cross-functional / agency]`
 - **Primary goal:** Reduce friction in discovery, checkout, and post-purchase journeys
 - **Design origin proof:** `TechStore.make` (included in this repository)
 - **Live demo:** `https://techstore-self-kappa.vercel.app/`
+
+## Engineering Translation
+
+- Prototype structured to be directly translatable to production code.
+- Component-based architecture aligned with real frontend patterns.
+- State handling mirrors real-world interaction logic (cart, auth, filters, favorites).
+- Designed to reduce design-to-development handoff gaps.
+
+## AI-Assisted Workflow
+
+- Used AI tools (Cursor, ChatGPT) to accelerate prototyping and iteration.
+- Generated initial UI structures via text-to-code workflows.
+- Refined interaction logic manually to ensure UX quality.
+- Balanced AI speed with human decision-making and usability validation.
 
 ## Product Scope in Code
 
@@ -65,6 +89,11 @@ Reduce discovery friction and shorten time-to-relevant-product without increasin
 - Product-page progression: `36% -> 49%` (`+13 p.p.`)
 - Time to relevant product: `3.8 min -> 2.4 min` (`-36.8%`)
 
+**Validation**
+- Conducted lightweight usability testing with scenario-based tasks.
+- Observed friction points in navigation, filtering, and product selection confidence.
+- Iterated discovery flow based on user hesitation and repeat-filter behavior.
+
 ### 2) Checkout Recovery
 
 **Situation**  
@@ -85,6 +114,11 @@ Increase checkout completion while keeping the flow fast and low-friction.
 - Error recovery rate: `41% -> 60%` (`+19 p.p.`)
 - Checkout-related support contacts: `14.2% -> 10.1%` (`-4.1 p.p.`)
 
+**Validation**
+- Conducted lightweight usability testing with scenario-based checkout tasks.
+- Observed friction in shipping/payment decisions and error recovery moments.
+- Iterated checkout flow based on hesitation patterns and failed-attempt behavior.
+
 ### 3) Post-Purchase Support
 
 **Situation**  
@@ -104,6 +138,11 @@ Improve resolution speed and self-service success while preserving trust and eas
 - Self-service completion: `46% -> 70%` (`+24 p.p.`)
 - CSAT: `78 -> 88` (`+10 points`)
 
+**Validation**
+- Conducted lightweight usability testing with post-purchase support scenarios.
+- Observed drop-offs across tracking, returns, and escalation decision points.
+- Iterated support flow based on confusion patterns and unresolved intents.
+
 ## Outcome Metrics Snapshot
 
 Current portfolio metrics:
@@ -118,6 +157,10 @@ Use these points in interviews and portfolio walkthroughs:
 - **Decision quality:** Which alternatives were considered and why this flow won.
 - **Validation rigor:** What changed after user testing and what was intentionally deferred.
 - **Delivery maturity:** How constraints (time, scope, compliance) shaped final behavior.
+
+## Interview One-Liner
+
+"This project represents how I work as a UX Design Engineer - I do not stop at static design. I use AI tools and code to prototype real interactions, validate them, and reduce the gap between design and engineering."
 
 ## Business Context and Constraints
 

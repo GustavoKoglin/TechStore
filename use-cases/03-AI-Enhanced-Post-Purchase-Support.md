@@ -60,6 +60,23 @@ The objective became: "resolve first intent quickly, then escalate cleanly if ne
 - Self-service completion: `46% -> 70%` (`+24 p.p.`)
 - CSAT: `78 -> 88` (`+10 points`)
 
+## Business Impact
+Reduced operational support load by shifting simple intents to self-service while preserving escalation quality.
+
+## My Role
+- Defined problem framing and UX strategy.
+- Designed flows and interaction models.
+- Built the functional prototype in React.
+- Used AI tools to accelerate ideation and iteration.
+- Conducted usability validation and refined solutions.
+
+## Authorship & AI Usage
+- This project was fully designed and implemented by me.
+- AI tools were used to accelerate ideation and prototyping, not to replace decision-making.
+- All UX decisions, tradeoffs, and final implementations were manually defined and validated.
+- My software engineering background allowed me to translate UX decisions into real interaction logic.
+- I structured the prototype in a production-ready way and ensured technical feasibility alongside UX quality.
+
 ## Tradeoffs
 - Prioritized clear intent routing over open-ended conversational flexibility.
 - Deliberately constrained automation where confidence could harm trust.

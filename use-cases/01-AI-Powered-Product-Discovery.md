@@ -60,6 +60,23 @@ The product goal shifted from "show more products" to "reduce cognitive load per
 - Product-page progression: `36% -> 49%` (`+13 p.p.`)
 - Time to relevant product: `3.8 min -> 2.4 min` (`-36.8%`)
 
+## Impact on Business
+Improved early funnel efficiency, increasing qualified product views and reducing wasted browsing sessions.
+
+## My Role
+- Defined problem framing and UX strategy.
+- Designed flows and interaction models.
+- Built the functional prototype in React.
+- Used AI tools to accelerate ideation and iteration.
+- Conducted usability validation and refined solutions.
+
+## Authorship & AI Usage
+- This project was fully designed and implemented by me.
+- AI tools were used to accelerate ideation and prototyping, not to replace decision-making.
+- All UX decisions, tradeoffs, and final implementations were manually defined and validated.
+- My software engineering background allowed me to translate UX decisions into real interaction logic.
+- I structured the prototype in a production-ready way and ensured technical feasibility alongside UX quality.
+
 ## Tradeoffs
 - Chose explainability over aggressive personalization to preserve trust.
 - Prioritized deterministic filtering before introducing ML ranking complexity.
